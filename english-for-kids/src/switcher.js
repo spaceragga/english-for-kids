@@ -4,6 +4,7 @@ export const switcher = {
     switchPosition: false,
 
     switchClick(btnFalse) {
+        console.log(btnFalse)
         const switherButton = document.querySelector('#switcher');
         const menuCard = document.querySelectorAll('#menuCard');
         const startBtn = document.querySelector('#startBtn');
@@ -12,7 +13,10 @@ export const switcher = {
 
         if(this.switchPosition === false) {
             menuCard.forEach(el => {
+                if (btnFalse === 0) {
                 el.classList.add('green');
+                }
+
                 startBtn.style.visibility = 'hidden';
             });
         } else {
@@ -26,13 +30,17 @@ export const switcher = {
         switherButton.addEventListener('click', () => {
             if(this.switchPosition === true) {
                 menuCard.forEach(el => {
+                    if (btnFalse === 0) {
                     el.classList.add('green');
+                    }
+
                     startBtn.style.visibility = 'hidden';
                 });
             } else {
                 menuCard.forEach(el => {
+                    if (btnFalse === 0) {
                     el.classList.remove('green');
-                    if(btnFalse !== 0) {
+                    } else {
                         startBtn.style.visibility = 'visible';           
                     }
                 });

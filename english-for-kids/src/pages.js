@@ -10,25 +10,60 @@ export function createPagesList(namber) {
 
 
     cards[namber].forEach((el, ind) => {
-        const card = document.createElement('a');
-        const img = document.createElement('img');
-        // green повесить на свитчер
-        card.classList.add('card');
-        card.setAttribute('id', 'menuCard');
-
-        mainWrapp.appendChild(card);
-        card.appendChild(img);
-
         if(namber === 0) {
+            const card = document.createElement('a');
+            const img = document.createElement('img');
+    
+            card.classList.add('card');
+            card.setAttribute('id', 'menuCard');
+    
+            mainWrapp.appendChild(card);
+            card.appendChild(img);
+    
             img.setAttribute('src', cards[ind+1][0].image);
             card.innerHTML += cards[0][ind];
-
-
         } else {
-            img.setAttribute('src', cards[namber][ind].image);
-            card.innerHTML += cards[namber][ind].word;
-        }
+            const cardWrapp = document.createElement('div');
+            const cardMain = document.createElement('div');
+            const cardFront = document.createElement('div');
+            const cardBack = document.createElement('div');
+            const cardRotate = document.createElement('div');
+            const cardHeaderFront = document.createElement('div');
+            const cardHeaderBack = document.createElement('div');
+    
+            mainWrapp.appendChild(cardWrapp);
+            cardWrapp.appendChild(cardMain);
+            cardMain.appendChild(cardFront);
+            cardMain.appendChild(cardBack);
+            cardMain.appendChild(cardRotate);
+            cardFront.appendChild(cardHeaderFront);
+            cardBack.appendChild(cardHeaderBack);
+    
+            cardMain.classList.add('card-action');
+            cardFront.classList.add('cardFront');
+            cardBack.classList.add('cardBack', 'cardBackRotate');
+            cardHeaderFront.classList.add('card-header');
+            cardHeaderBack.classList.add('card-header');
+            cardWrapp.setAttribute('id', 'menuCard');
+            cardRotate.classList.add('cardRotate');
 
+            cardHeaderFront.innerHTML += cards[namber][ind].word;
+            cardHeaderBack.innerHTML += cards[namber][ind].translation;
+
+            cardRotate.addEventListener('click', () => {
+                // cardBack.classList.remove('cardBackRotate');
+                cardMain.classList.add('rotateNow');
+                cardMain.addEventListener('mouseleave', () => {
+                    cardMain.classList.remove('rotateNow');
+                });
+            });
+
+            cardFront.setAttribute("style", `background-image: url("${cards[namber][ind].image}")`);
+            cardBack.setAttribute("style", `background-image: url("${cards[namber][ind].image}")`);
+    
+            // img.setAttribute('src', cards[namber][ind].image);
+            // card.innerHTML += cards[namber][ind].word;
+        }
     });
 
     if(namber === 0) {

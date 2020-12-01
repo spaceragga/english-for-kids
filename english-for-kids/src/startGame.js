@@ -20,4 +20,4 @@ export const startGame = {
 
         this.gameOn = !this.gameOn;
     }
-}
+};
