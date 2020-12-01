@@ -58,6 +58,13 @@ export function createPagesList(namber) {
                 });
             });
 
+            cardFront.addEventListener('click', () => {
+                const audio = new Audio();
+                audio.src = cards[namber][ind].audioSrc;
+                console.log(`${cards[namber][ind].audioSrc}`)
+                audio.autoplay = true;
+            });
+
             cardFront.setAttribute("style", `background-image: url("${cards[namber][ind].image}")`);
             cardBack.setAttribute("style", `background-image: url("${cards[namber][ind].image}")`);
     
