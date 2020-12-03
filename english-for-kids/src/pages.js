@@ -51,7 +51,6 @@ export function createPagesList(namber) {
             cardHeaderBack.innerHTML += cards[namber][ind].translation;
 
             cardRotate.addEventListener('click', () => {
-                // cardBack.classList.remove('cardBackRotate');
                 cardMain.classList.add('rotateNow');
                 cardMain.addEventListener('mouseleave', () => {
                     cardMain.classList.remove('rotateNow');
@@ -59,10 +58,15 @@ export function createPagesList(namber) {
             });
 
             cardFront.addEventListener('click', () => {
-                const audio = new Audio();
-                audio.src = cards[namber][ind].audioSrc;
-                console.log(`${cards[namber][ind].audioSrc}`)
-                audio.autoplay = true;
+                if(switcher.switchPosition === false) {
+                    const audio = new Audio();
+                    audio.src = cards[namber][ind].audioSrc;
+                    audio.autoplay = true;
+                } else {
+                    if(startGame.gameOn === true) {
+                        startGame.checkWord(cards[namber][ind].audioSrc); 
+                    }
+                }
             });
 
             cardFront.setAttribute("style", `background-image: url("${cards[namber][ind].image}")`);
@@ -92,7 +96,9 @@ export function createPagesList(namber) {
     startBtn.innerHTML = 'Start Game';
 
     startBtn.addEventListener('click', () => {
-        startGame.startGameClick();
+        if(startGame.gameOn === false) {
+            startGame.startGameClick(namber);
+        }
     });
     
     switcher.switchClick(namber);

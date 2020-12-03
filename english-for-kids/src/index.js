@@ -19,6 +19,7 @@ const mainMenu = {
                 mainWrapp.innerHTML = '';
                 createPagesList(index);
                 switcher.switchClick(index);
+                // начало игры, при переходе на др страницу остаётся тру
                 // if(index === 0 ) {
                 // document.querySelector('.startBtn').style.visibility = 'hidden';
                 // }

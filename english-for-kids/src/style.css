@@ -129,14 +129,14 @@ body
   position: absolute;
   width: 300px;
   left: calc(675px - 50vw);
-  /* height: 100%; */
+  height: calc(80vh + 20px);
   margin: -100px 0 0 -50px;
   /* padding: 50px; */
   padding-bottom: 50px;
   padding-left: 150px;
   padding-top: 125px;
   
-  background: #ededed;
+  background: #39bbec;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -292,7 +292,7 @@ body
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  max-width: 1350px;
+  max-width: 1360px;
   margin: 0 auto;
   padding-top: 15px;
   height: 40px;
@@ -302,8 +302,17 @@ body
   color: #fc6262;
 }
 
-.star-error, .star-succes {
+.star-succes {
   background-image: url(/img/star-win.svg);
+  flex-shrink: 0;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+}
+
+.star-error {
+  background-image: url(/img/star.svg);
   flex-shrink: 0;
   width: 40px;
   min-width: 40px;
@@ -426,6 +435,11 @@ body
   transition: box-shadow .25s linear,transform .7s,-webkit-transform .7s;
 }
 
+.card-action:hover {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
 .cardFront, .cardBack {
   display: flex;
   position: absolute;
@@ -499,4 +513,12 @@ body
 .playDisabledImg {
   background-size: cover;
   background-position: 50%;
+}
+
+.endGameBox {
+  display: flex;
+  justify-content: center;
+  font-size: 5em;
+  flex-direction: column;
+  align-items: center;
 }
