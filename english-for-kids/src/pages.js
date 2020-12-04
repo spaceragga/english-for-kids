@@ -3,7 +3,6 @@ import { switcher } from './switcher.js';
 import { startGame } from './startGame.js';
 
 export function createPagesList(namber) {
-    console.log(namber);
     const mainWrapp = document.querySelector(".main-wrapp");
     const startBtn = document.createElement('button');
     const startBtnContainer = document.createElement('div');
@@ -64,7 +63,7 @@ export function createPagesList(namber) {
                     audio.autoplay = true;
                 } else {
                     if(startGame.gameOn === true) {
-                        startGame.checkWord(cards[namber][ind].audioSrc); 
+                        startGame.checkWord(cards[namber][ind].audioSrc, cardFront); 
                     }
                 }
             });

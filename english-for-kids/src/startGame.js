@@ -5,14 +5,12 @@ import { createPagesList } from './pages.js';
 export const startGame = {
     gameOn: false,
     arr: [],
-    wordCheck: '',
+    // wordCheck: '',
     errorClick: 0,
     rightClick: 0,
 
 
     startGameClick(namber) {
-        // console.log(Object.values(cards[namber].audioSrc))
-
         this.arr = cards[namber].map(el => el.audioSrc).sort(() => Math.random() - 0.5);
         const startBtn = document.querySelector('#startBtn');
 
@@ -95,8 +93,8 @@ export const startGame = {
         switcher.switchClick(0);
     },
 
-    checkWord(word) {
-        this.wordCheck = word;
+    checkWord(word, card) {
+        // this.wordCheck = word;
 
         if(word === this.arr[0]) {
             const audio = new Audio();
@@ -104,7 +102,7 @@ export const startGame = {
             audio.autoplay = true;
 
             this.rightClick += 1;
-
+            card.hidden = true;
             document.querySelector('.notes').innerHTML += '<div class="star-succes"></div>';
 
             this.arr.shift();
@@ -115,7 +113,6 @@ export const startGame = {
                 }, 1000);
             } else {
                 this.endGame();
-                console.log('end');
             }
 
         } else {

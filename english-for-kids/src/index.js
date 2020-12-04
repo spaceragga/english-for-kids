@@ -3,11 +3,7 @@ import { cards } from './cards.js';
 import { createPagesList } from './pages.js';
 import { switcher } from './switcher.js';
 
-console.dir(cards);
 const mainMenu = {
-    // properties {
-
-    // },
 
     initMainMenu() {
         const mainWrapp = document.querySelector(".main-wrapp");

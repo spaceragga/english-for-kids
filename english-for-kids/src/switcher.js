@@ -23,25 +23,15 @@ export const switcher = {
                 }
             });
             this.trainGame();
-            // отдельную функцию для уменьшения кода
-            startGame.errorClick = 0;
-            startGame.rightClick = 0;
-            startGame.gameOn = false;
-
-            document.querySelector('.notes').innerHTML = '';
-            startBtn.style.visibility = 'hidden';
+            this.refreshGame();
         } else {
             this.playGame();
+            this.refreshGame();
             startBtn.style.visibility = 'visible';   
         }
             
         if (btnFalse === 0) {
-            startGame.errorClick = 0;
-            startGame.rightClick = 0;
-            startGame.gameOn = false;
-
-            document.querySelector('.notes').innerHTML = '';
-            startBtn.style.visibility = 'hidden';
+            this.refreshGame();
         }
 
         switherButton.addEventListener('click', () => {
@@ -50,15 +40,9 @@ export const switcher = {
                     if (btnFalse === 0) {
                     el.classList.add('green');
                     }
-                    // el.addEventListener('click',  temp = () => this.audioPlay(btnFalse, ind));
                 });
                 this.trainGame();
-                startGame.errorClick = 0;
-                startGame.rightClick = 0;
-                startGame.gameOn = false;
-
-                document.querySelector('.notes').innerHTML = '';
-                startBtn.style.visibility = 'hidden';
+                this.refreshGame();
             } else {
                 menuCard.forEach((el) => {
                     if (btnFalse === 0) {
@@ -68,12 +52,25 @@ export const switcher = {
                     this.playGame();
                     startBtn.style.visibility = 'visible';           
                 }
-                // el.removeEventListener('click', temp);
                 });
             }
 
             this.switchPosition = !this.switchPosition;
         });
+    },
+
+    refreshGame() {
+        startGame.errorClick = 0;
+        startGame.rightClick = 0;
+        startGame.gameOn = false;
+
+        document.querySelector('.notes').innerHTML = '';
+        startBtn.style.visibility = 'hidden';
+
+        document.querySelector('#startBtn').classList.remove('startBtn-repeat');
+        document.querySelector('#startBtn').classList.add('startBtn');
+
+        document.querySelectorAll('.cardFront').forEach((el) => el.hidden = false);
     },
 
     playGame() {
