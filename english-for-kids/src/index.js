@@ -30,10 +30,6 @@ const mainMenu = {
         if(statistics.clickStat === null) {
             statistics.clickStat = cards;
         }
-
-        // document.addEventListener('click', () => {
-            // inputBurger.checked = false;
-        // });
     }
 };
 

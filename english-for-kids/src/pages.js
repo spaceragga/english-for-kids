@@ -95,6 +95,7 @@ export function createPagesList(namber) {
     startBtnContainer.classList.add('startContainer');
     startBtn.classList.add('button');
     startBtn.setAttribute('id', 'startBtn');
+    
     startBtn.innerHTML = 'Start Game';
 
     startBtn.addEventListener('click', () => {

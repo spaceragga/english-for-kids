@@ -46,7 +46,6 @@ export const startGame = {
             audio.autoplay = true;
 
             setTimeout(() => {
-                // document.location.reload();
                 this.refreshPage();
             }, 3000);
         } else {
@@ -58,7 +57,6 @@ export const startGame = {
             audio.autoplay = true;
 
             setTimeout(() => {
-                // document.location.reload();
                 this.refreshPage();
             }, 3000);
         }

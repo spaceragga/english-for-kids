@@ -1,5 +1,4 @@
 import { startGame } from './startGame.js';
-import { cards } from './cards.js';
 
 export const switcher = {
     switchPosition: false,
@@ -8,11 +7,6 @@ export const switcher = {
         const switherButton = document.querySelector('#switcher');
         const menuCard = document.querySelectorAll('#menuCard');
         const startBtn = document.querySelector('#startBtn');
-        // let temp;
-        // const cardRotate = document.querySelectorAll('.cardRotate');
-        // const headerCard = document.querySelectorAll('.card-header');
-        // const cardFront = document.querySelectorAll('.cardFront');
-        // const cardBack = document.querySelectorAll('.cardBack');
 
         startBtn.classList.add('startBtn');
 

@@ -20,6 +20,7 @@ export const statistics = {
         statatistics.appendChild(table);
 
         for(let i = 0; i <= 64; i++) {
+            
             const tr = document.createElement('tr');
             statatistics.appendChild(tr);
 
