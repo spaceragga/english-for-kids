@@ -60,10 +60,9 @@ body
 #menuToggle input:checked
 {
   position: absolute;
-  top: -6vh;
 
-  width: 190vh;
-  height: 100vh;
+  width: 50px;
+  height: 50px;
 
   z-index: 11;
 }
@@ -577,21 +576,9 @@ footer {
   margin-left: 2em;
 }
 
-@media (max-width:1800px) {
-  #menuToggle input:checked {
-    width: 40px;
-    height: 45px;
-  }
-}
-
 @media (max-width:1430px) {
   #menu {
    left:calc(500px - 50vw)
-  }
-
-  #menuToggle input:checked {
-    width: 40px;
-    height: 45px;
   }
  }
 
@@ -599,11 +586,6 @@ footer {
   #menu {
    left:calc(325px - 50vw)
   }
-
-  #menuToggle input:checked {
-    width: 40px;
-    height: 45px;
-    }
  }
 
  @media (max-width:730px) {
@@ -611,11 +593,4 @@ footer {
    width: 11em;
    left:calc(150px - 50vw)
   }
-
-  #menuToggle input:checked {
-    width: 40px;
-    height: 45px;
-
-    z-index: 12;
-    }
 }
