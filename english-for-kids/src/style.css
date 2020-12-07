@@ -22,8 +22,6 @@ body
   top: 18px;
   left: 50px;
   
-  z-index: 1;
-  
   -webkit-user-select: none;
   user-select: none;
 }
@@ -54,11 +52,21 @@ body
   cursor: pointer;
   
   opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  z-index: 11; /* and place it over the hamburger */
   
   -webkit-touch-callout: none;
 }
 
+#menuToggle input:checked
+{
+  position: absolute;
+  top: -6vh;
+
+  width: 190vh;
+  height: 100vh;
+
+  z-index: 11;
+}
 /*
  * Just a quick hamburger
  */
@@ -73,7 +81,7 @@ body
   background: #cdcdcd;
   border-radius: 3px;
   
-  z-index: 1;
+  z-index: 10;
   
   transform-origin: 4px 0px;
   
@@ -127,7 +135,7 @@ body
 #menu
 {
   position: absolute;
-  width: 300px;
+  width: 15em;
   left: calc(675px - 50vw);
   height: calc(80vh + 20px);
   margin: -100px 0 0 -50px;
@@ -145,12 +153,16 @@ body
   transform: translate(-100%, 0);
   
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+  z-index: 9;
 }
 
 #menu li
 {
   padding: 10px 0;
   font-size: 22px;
+
+  z-index: 15;
 }
 
 /*
@@ -164,14 +176,6 @@ body
 .rocker {
     display: inline-block;
     position: relative;
-    /*
-    SIZE OF SWITCH
-    ==============
-    All sizes are in em - therefore
-    changing the font-size here
-    will change the size of the switch.
-    See .rocker-small below as example.
-    */
     font-size: 0.88em;
     font-weight: bold;
     text-align: center;
@@ -526,4 +530,92 @@ body
 [hidden] {
   pointer-events: none;
   opacity: 0.4;
+}
+
+.statWrapp {
+  max-width: 1360px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+.statatistics {
+  width: 100%;
+}
+
+.tableStat {
+  border-collapse: collapse;
+  color: #686461;
+  width: 100%;
+  /* box-shadow: 3px 3px 15px 2px rgba(138,83,0,0.25),-3px -3px 15px 2px rgba(138,83,0,0.22); */
+  word-break: break-word;
+}
+
+td {
+  width: 8em;
+  height: 2em;
+
+  text-align: center;
+  vertical-align: middle;
+
+  border: 1px solid black;
+}
+
+footer {
+  width: 100%;
+  height: 2em;
+  
+}
+
+.footerWrapp {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footerLogo {
+  width: 3em;
+  height: 1em;
+  margin-left: 2em;
+}
+
+@media (max-width:1800px) {
+  #menuToggle input:checked {
+    width: 40px;
+    height: 45px;
+  }
+}
+
+@media (max-width:1430px) {
+  #menu {
+   left:calc(500px - 50vw)
+  }
+
+  #menuToggle input:checked {
+    width: 40px;
+    height: 45px;
+  }
+ }
+
+ @media (max-width:1080px) {
+  #menu {
+   left:calc(325px - 50vw)
+  }
+
+  #menuToggle input:checked {
+    width: 40px;
+    height: 45px;
+    }
+ }
+
+ @media (max-width:730px) {
+  #menu {
+   width: 11em;
+   left:calc(150px - 50vw)
+  }
+
+  #menuToggle input:checked {
+    width: 40px;
+    height: 45px;
+
+    z-index: 12;
+    }
 }

@@ -1,6 +1,7 @@
 import { cards } from './cards.js';
 import { switcher } from './switcher.js';
 import { startGame } from './startGame.js';
+import { statistics } from './statistics.js';
 
 export function createPagesList(namber) {
     const mainWrapp = document.querySelector(".main-wrapp");
@@ -63,7 +64,7 @@ export function createPagesList(namber) {
                     audio.autoplay = true;
                 } else {
                     if(startGame.gameOn === true) {
-                        startGame.checkWord(cards[namber][ind].audioSrc, cardFront); 
+                        startGame.checkWord(namber, ind, cardFront); 
                     }
                 }
             });
@@ -71,8 +72,10 @@ export function createPagesList(namber) {
             cardFront.setAttribute("style", `background-image: url("${cards[namber][ind].image}")`);
             cardBack.setAttribute("style", `background-image: url("${cards[namber][ind].image}")`);
     
-            // img.setAttribute('src', cards[namber][ind].image);
-            // card.innerHTML += cards[namber][ind].word;
+            cardMain.addEventListener('click', () => {
+                statistics.clickStat[namber][ind].clicks += 1;
+                localStorage.setItem('myobj113', JSON.stringify(statistics.clickStat));
+            });
         }
     });
 
