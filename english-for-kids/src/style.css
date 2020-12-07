@@ -545,7 +545,6 @@ body
   border-collapse: collapse;
   color: #686461;
   width: 100%;
-  /* box-shadow: 3px 3px 15px 2px rgba(138,83,0,0.25),-3px -3px 15px 2px rgba(138,83,0,0.22); */
   word-break: break-word;
 }
 
